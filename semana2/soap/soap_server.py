@@ -1,8 +1,18 @@
 from http.server import HTTPServer
 from pysimplesoap.server import SoapDispatcher, SOAPHandler
 
+
 def saludar(nombre):
     return "¡hola, {}!".format(nombre)
+
+
+def sumaDosNumeros(num1, num2):
+    return num1 + num2
+
+
+def cadenaPalindromo(cadena):
+    return "¡hola, {}!".format(cadena)
+
 
 dispatcher = SoapDispatcher(
     "ejemplo-soap-server",
@@ -16,8 +26,10 @@ dispatcher = SoapDispatcher(
 dispatcher.register_function(
     "Saludar",
     saludar,
-    returns={"saludo":str},
-    args={"nombre":str},
+    "CadenaPalindromo",
+    cadenaPalindromo,
+    returns={"saludo": str, "cadenaPalindromo": str},
+    args={"nombre": str, "cadena": str},
 )
 
 server = HTTPServer(("0.0.0.0", 8000), SOAPHandler)

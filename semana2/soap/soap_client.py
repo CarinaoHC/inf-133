@@ -4,3 +4,5 @@ client = Client(
 )
 result = client.service.Saludar(nombre="karina")
 print(result)
+result1 = client.service.CadenaPalindromo(cadena="hola")
+print(result1)
