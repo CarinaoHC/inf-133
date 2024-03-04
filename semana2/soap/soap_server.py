@@ -26,10 +26,8 @@ dispatcher = SoapDispatcher(
 dispatcher.register_function(
     "Saludar",
     saludar,
-    "CadenaPalindromo",
-    cadenaPalindromo,
-    returns={"saludo": str, "cadenaPalindromo": str},
-    args={"nombre": str, "cadena": str},
+    returns={"saludo": str},
+    args={"nombre": str},
 )
 
 server = HTTPServer(("0.0.0.0", 8000), SOAPHandler)
