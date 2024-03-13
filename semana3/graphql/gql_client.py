@@ -51,7 +51,7 @@ mutation {
 response_mutation2 = requests.post(url, json={'query': query_crear2})
 print(response_mutation2.text)
 
-# Definir la consulta GraphQL para crear nuevo estudiante 1
+# Definir la consulta GraphQL para crear nuevo estudiante 3
 query_crear3 = """
 mutation {
         crearEstudiante(nombre: "Oscar", apellido: "Iglesias", carrera: "Matematicas") {
@@ -96,7 +96,7 @@ print(response.text)
 
 query_actualizar = """
 mutation {
-        actualizarEstudiante(nombre: "Jose", apellido: "Lopez) {
+        actualizarEstudiante(nombre: "Jose", apellido: "Lopez") {
             estudiante {
                 id
                 nombre
