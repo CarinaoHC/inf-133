@@ -10,3 +10,11 @@ mi_pizza = {
 }
 response = requests.post(url, json=mi_pizza, headers=headers)
 print(response.json())
+
+mi_pizza2 = {
+    "tamaño": "Pequeño",
+    "masa": "Gruesa",
+    "toppings": ["Piña", "Carne"]
+}
+response = requests.post(url, json=mi_pizza2, headers=headers)
+print(response.json())
