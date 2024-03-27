@@ -9,12 +9,12 @@ print(response.json())
 
 # POST /tacos 
 mi_taco = {
-    "base": "Grande",
-    "guiso": "Delgada",
-    "toppings": ["Jamon", "Queso"],
-    "salsa": "nn"
+    "base": "Canasta",
+    "guiso": "Mole verde",
+    "toppings": ["Carne", "Pollo"],
+    "salsa": "Roja"
 }
-response = requests.post(url, mi_taco, headers=headers)
+response = requests.post(url, json=mi_taco, headers=headers)
 print(response.json())
 
 # GET /tacos
@@ -23,10 +23,10 @@ print(response.json())
 
 # PUT /tacos/1
 edit_taco = {
-    "base": "Mediano",
-    "guiso": "Gruesa",
-    "toppings": ["Pepperoni", "Queso"],
-    "salsa": "nn"
+    "base": "Dorados",
+    "guiso": "Rajas con crema y queso",
+    "toppings": ["Carne", "Queso"],
+    "salsa": "Verde"
 }
 response = requests.post(url, json=edit_taco, headers=headers)
 print(response.json())

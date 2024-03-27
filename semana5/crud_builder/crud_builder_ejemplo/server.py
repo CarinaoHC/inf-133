@@ -38,8 +38,8 @@ class TacoBuilder:
         return self.taco
 
 
-# Director: Taco
-class Taco:
+# Director: Taqueria
+class Taqueria:
     def __init__(self, builder):
         self.builder = builder
 
@@ -56,7 +56,7 @@ class Taco:
 class TacoService:
     def __init__(self):
         self.builder = TacoBuilder()
-        self.taco = Taco(self.builder)
+        self.taqueria = Taqueria(self.builder)
 
     def create_taco(self, post_data):
         base = post_data.get("base", None)
@@ -64,7 +64,7 @@ class TacoService:
         toppings = post_data.get("toppings", [])
         salsa = post_data.get("salsa", None)
 
-        taco = self.taco.create_taco(base, guiso, toppings, salsa)
+        taco = self.taqueria.create_taco(base, guiso, toppings, salsa)
         tacos[len(tacos) + 1] = taco
         
         return taco
