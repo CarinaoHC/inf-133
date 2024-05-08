@@ -19,6 +19,12 @@ response = requests.post(url, json=book_2, headers=headers)
 print("\nCreando el segundo book:")
 print(response.json())
 
+# Crear el tercero book
+book_3 = {"title": "Odisea", "author": "Homero", "edition": 1, "availability": True}
+response = requests.post(url, json=book_3, headers=headers)
+print("\nCreando el segundo book:")
+print(response.json())
+
 # Obtener la lista de todos los bookes
 url = f"{BASE_URL}/books"
 response = requests.get(url, headers=headers)

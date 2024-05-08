@@ -8,10 +8,10 @@ app = Flask(__name__)
 
 # Configura la URL de la documentación OpenAPI
 SWAGGER_URL = "/api/docs"  # Ruta para servir Swagger UI
-API_URL = "/static/openapi.yaml"  # Ruta de tu archivo OpenAPI/Swagger
+API_URL = "/static/swagger.json"  # Ruta de tu archivo OpenAPI/Swagger
 # Inicializa el Blueprint de Swagger UI
 swagger_ui_blueprint = get_swaggerui_blueprint(
-    SWAGGER_URL, API_URL, config={"app_name": "Libros API"}
+    SWAGGER_URL, API_URL, config={"app_name": "Libreria API"}
 )
 app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_URL)
 
