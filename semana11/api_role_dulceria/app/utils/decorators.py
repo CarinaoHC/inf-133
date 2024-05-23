@@ -3,7 +3,6 @@ from flask_jwt_extended import verify_jwt_in_request, get_jwt_identity
 from functools import wraps
 import json
 
-
 def jwt_required(fn):
     @wraps(fn)
     def wrapper(*args, **kwargs):
@@ -14,7 +13,6 @@ def jwt_required(fn):
             return jsonify({"error": str(e)}), 401
 
     return wrapper
-
 
 def roles_required(roles=[]):
     def decorator(fn):
