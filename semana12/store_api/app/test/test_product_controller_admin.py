@@ -1,12 +1,9 @@
-import pytest
-
 # Tests para el controlador de productos
 
 
 def test_get_products(test_client, admin_auth_headers):
     # El usuario con el rol de "admin" debería poder obtener la lista de productos
     response = test_client.get("/api/products", headers=admin_auth_headers)
-    print(response.data)
     assert response.status_code == 200
     assert response.json == []
 
@@ -38,8 +35,9 @@ def test_get_product(test_client, admin_auth_headers):
 def test_get_nonexistent_product(test_client, admin_auth_headers):
     # El usuario con el rol de "admin" debería recibir un error al intentar obtener un producto inexistente
     response = test_client.get("/api/products/999", headers=admin_auth_headers)
+    print(response.json)
     assert response.status_code == 404
-    assert response.json["error"] == "Producto no encontrado"
+    assert response.json["error"] == "Product no encontrado"
 
 
 def test_create_product_invalid_data(test_client, admin_auth_headers):
@@ -78,7 +76,7 @@ def test_update_nonexistent_product(test_client, admin_auth_headers):
         "/api/products/999", json=data, headers=admin_auth_headers
     )
     assert response.status_code == 404
-    assert response.json["error"] == "Producto no encontrado"
+    assert response.json["error"] == "Product no encontrado"
 
 
 def test_delete_product(test_client, admin_auth_headers):
@@ -89,11 +87,11 @@ def test_delete_product(test_client, admin_auth_headers):
     # Verifica que el producto ha sido eliminado
     response = test_client.get("/api/products/1", headers=admin_auth_headers)
     assert response.status_code == 404
-    assert response.json["error"] == "Producto no encontrado"
+    assert response.json["error"] == "Product no encontrado"
 
 
 def test_delete_nonexistent_product(test_client, admin_auth_headers):
     # El usuario con el rol de "admin" debería recibir un error al intentar eliminar un producto inexistente
     response = test_client.delete("/api/products/999", headers=admin_auth_headers)
     assert response.status_code == 404
-    assert response.json["error"] == "Producto no encontrado"
+    assert response.json["error"] == "Product no encontrado"
