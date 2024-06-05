@@ -2,7 +2,6 @@ from flask import Blueprint, request, jsonify
 from app.models.book_model import Book
 from app.utils.decorators import jwt_required, roles_required
 from app.views.book_view import render_book_list, render_book_detail
-from utils.decorators import jwt_required, roles_required
 
 # Crear un blueprint para el controlador de books
 book_bp = Blueprint("book", __name__)

@@ -1,4 +1,3 @@
-
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from app.controllers.book_controller import book_bp
